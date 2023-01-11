@@ -12,7 +12,7 @@ const EventPractice = () => {
   };
 
   const onKeyPress = (e) => {
-    if (e.key === 'Enter' || e.key === 'Space') {
+    if (e.key === 'Enter') {
       onClick();
     }
   };
@@ -20,6 +20,22 @@ const EventPractice = () => {
   return (
     <div>
       <h1>Event Practice</h1>
+      <input
+        type="text"
+        name="username"
+        placeholder="사용자명"
+        value={username}
+        onChange={onChangeUsername}
+      />
+      <input
+        type="text"
+        name="message"
+        placeholder="메시지"
+        value={message}
+        onChange={onChangeMessage}
+        onKeyPress={onKeyPress}
+      />
+      <button onClick={onClick}>확인</button>
     </div>
   );
 };
