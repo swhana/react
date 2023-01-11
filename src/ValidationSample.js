@@ -21,12 +21,15 @@ class ValidationSample extends React.Component {
       clicked: true,
       validated: this.state.password === '0000', //비밀번호가 0000일 경우에 true
     });
+
+    this.input.focus(); //focus(커서)가 다시 input창으로 넘어간다
   };
 
   render() {
     return (
       <div>
         <input
+          ref={(ref) => (this.input = ref)}
           type="password"
           value={this.state.password}
           onChange={this.handleChange} //onChange이벤트가 발생하면 handleChange호출
