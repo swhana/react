@@ -7,6 +7,7 @@ import React, { Component } from 'react';
 // import ScrollBox from './ScrollBox';
 // import { IterationSample } from './IterationSample';
 import LifeCycleSample from './LifeCycleSample';
+import ErrorBoundary from './ErrorBoundary';
 import './App.css';
 
 function getRandomColor() {
@@ -25,10 +26,14 @@ class App extends Component {
   };
 
   render() {
+    //버튼 누를때마다 랜덤클릭 생성하는 메소드 호출
+    //color값을 props로 설정해서 넘김
     return (
       <div>
         <button onClick={this.handleClick}>랜덤 색상</button>
-        <LifeCycleSample color={this.state.color} />
+        <ErrorBoundary>
+          <LifeCycleSample color={this.state.color} />
+        </ErrorBoundary>
       </div>
     );
   }
